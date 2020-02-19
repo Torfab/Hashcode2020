@@ -16,18 +16,22 @@ public class WriteToFile {
     public void write(List<String[]> content, String path) throws IOException, FileNotFoundException {
 
 
-        File f = new File("output/"+ path);
+        File f = new File("output/" + path);
         if (!f.exists()) {
             f.getParentFile().mkdirs();
             f.createNewFile();
         }
         BufferedWriter realWriter = new BufferedWriter(new FileWriter("output/" + path));
-        for (String[] element: content){
+        for (String[] element : content) {
             for (int j = 0; j < element.length; j++) {
-                realWriter.write(element[j] + " ");
+                realWriter.write(element[j]);
+                if (j < element.length - 1) {
+                    realWriter.write(" ");
+                }
             }
             realWriter.write("\n");
         }
+
         realWriter.close();
         return;
     }
