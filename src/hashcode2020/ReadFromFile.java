@@ -10,13 +10,11 @@ import java.util.Scanner;
 
 public class ReadFromFile {
 
-    public List<String[]> read() throws Exception {
+    public List<String[]> read(String filename) throws Exception {
         // pass the path to the file as a parameter 
         try {
-            Scanner keyboard = new Scanner(System.in);
-            //    System.out.println("inserisci il nome del file di input");
-            //     String filename= keyboard.nextLine();
-            File file = new File("input/inputE.in");
+
+            File file = new File("input/"+filename);
             Scanner sc = new Scanner(file);
             List<String[]> fileContent = new ArrayList<>();
             while (sc.hasNextLine()) {
@@ -43,7 +41,8 @@ public class ReadFromFile {
 
             return fileContent;
         } catch (Exception e) {
-            e.printStackTrace();
+            File file = new File("input/" + filename);
+            System.out.println("Mi dispiace, non trovo il file, sei sicuro esista il file " + file.getAbsolutePath());
             return null;
         }
 

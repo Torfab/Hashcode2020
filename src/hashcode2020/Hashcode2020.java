@@ -5,26 +5,30 @@
  */
 package hashcode2020;
 
+import java.util.Scanner;
+
 /**
  *
  * @author torfab94
  */
 public class Hashcode2020 {
-    
-    
+
     private String inputPath;
-    
-    
-    static private ReadFromFile reader = new ReadFromFile();
+
     /**
      * @param args the command line arguments
      */
-    
-    
     public static void main(String[] args) throws Exception {
-
-        System.out.println("it works");
-        reader.read();
+        ReadFromFile reader = new ReadFromFile();
+        WriteToFile writer = new WriteToFile();
+        
+        
+        Scanner keyboard = new Scanner(System.in);
+        while(true){
+        System.out.println("inserisci il nome del file di input contenuto nella cartella input della root: ");
+        String filename= keyboard.nextLine();
+        reader.read(filename);
+        }
     }
-    
+
 }
