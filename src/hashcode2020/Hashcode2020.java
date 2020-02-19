@@ -21,15 +21,20 @@ public class Hashcode2020 {
     public static void main(String[] args) throws Exception {
         ReadFromFile reader = new ReadFromFile();
         WriteToFile writer = new WriteToFile();
+        MathSorcerer mathSorcerer = new MathSorcerer();
 
 
         Scanner keyboard = new Scanner(System.in);
         while (true) {
             System.out.println("inserisci il nome del file di input contenuto nella cartella input della root: ");
             String filename = keyboard.nextLine();
+
             List<String[]> content = reader.read(filename);
-            if (content!=null) {
-                writer.write(content, filename);
+
+            List<String[]> result = mathSorcerer.grind(content);
+
+            if (result!=null) {
+                writer.write(result, filename);
             }
         }
 
