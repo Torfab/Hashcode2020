@@ -5,10 +5,10 @@
  */
 package hashcode2020;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
- *
  * @author torfab94
  */
 public class Hashcode2020 {
@@ -21,14 +21,18 @@ public class Hashcode2020 {
     public static void main(String[] args) throws Exception {
         ReadFromFile reader = new ReadFromFile();
         WriteToFile writer = new WriteToFile();
-        
-        
+
+
         Scanner keyboard = new Scanner(System.in);
-        while(true){
-        System.out.println("inserisci il nome del file di input contenuto nella cartella input della root: ");
-        String filename= keyboard.nextLine();
-        reader.read(filename);
+        while (true) {
+            System.out.println("inserisci il nome del file di input contenuto nella cartella input della root: ");
+            String filename = keyboard.nextLine();
+            List<String[]> content = reader.read(filename);
+            if (content!=null) {
+                writer.write(content, filename);
+            }
         }
+
     }
 
 }
