@@ -21,7 +21,7 @@ public class Hashcode2020 {
     public static void main(String[] args) throws Exception {
         ReadFromFile reader = new ReadFromFile();
         WriteToFile writer = new WriteToFile();
-        MathSorcerer mathSorcerer = new MathSorcerer();
+        MathSorcerer mathSorcerer;
 
 
         Scanner keyboard = new Scanner(System.in);
@@ -33,7 +33,8 @@ public class Hashcode2020 {
             List<String[]> content = reader.read(filename);
 
             if (content != null) {
-                result = mathSorcerer.grind(content);
+                mathSorcerer=new MathSorcerer(content);
+                result = mathSorcerer.grind();
             }
 
             if (result != null) {
