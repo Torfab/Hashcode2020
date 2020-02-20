@@ -28,14 +28,18 @@ public class Hashcode2020 {
         while (true) {
             System.out.println("inserisci il nome del file di input contenuto nella cartella input della root: ");
             String filename = keyboard.nextLine();
+            List<String[]> result = null;
 
             List<String[]> content = reader.read(filename);
 
-            List<String[]> result = mathSorcerer.grind(content);
+            if (content != null) {
+                result = mathSorcerer.grind(content);
+            }
 
-            if (result!=null) {
+            if (result != null) {
                 writer.write(result, filename);
             }
+
         }
 
     }
